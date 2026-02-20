@@ -1500,10 +1500,10 @@ def SBC(df, sbc, maxSolveTime):
     raw_status = solver.Solve(model, callback)
     # OR-Tools may return a CpSolverStatus wrapper object; convert to a JSON-safe int.
     try:
-        status_code = int(raw_status)
+        status = int(raw_status)
     except Exception:
         # Fallback: keep a string representation to avoid FastAPI json encoding errors.
-        status_code = str(raw_status)
+        status = str(raw_status)
     print("\n")
     final_players = []
 
